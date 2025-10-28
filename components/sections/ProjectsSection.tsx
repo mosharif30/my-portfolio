@@ -18,7 +18,7 @@ export function ProjectsSection({ resume }: { resume: Resume }) {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, delay: idx * 0.07 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
           >
             <Card className="h-full flex flex-col hover:-translate-y-1 transition-transform duration-200">
               <div className="flex items-start justify-between gap-4">

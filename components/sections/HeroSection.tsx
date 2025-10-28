@@ -81,7 +81,7 @@ export function HeroSection({
             variants={staggerParent}
             initial="initial"
             whileInView="whileInView"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
           >
             {/* Download CV */}
             <div className="flex flex-wrap justify-center md:justify-start gap-3">

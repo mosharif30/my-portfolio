@@ -58,7 +58,7 @@ export default function SkillsSection({ resume }: { resume: Resume }) {
                       delay: groupIdx * 0.1 + i * 0.03,
                       duration: 0.25,
                     }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                   >
                     <Badge className="text-sm leading-none">{skill}</Badge>
                   </motion.div>
