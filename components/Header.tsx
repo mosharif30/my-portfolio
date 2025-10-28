@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
   { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
   { href: "#education", label: "Education" },
+  { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#extra", label: "More" },
@@ -21,8 +21,10 @@ export function Header() {
           MS.
         </Link>
         <nav className="hidden sm:flex items-center gap-1">
-          {links.map(l => (
-            <a key={l.href} href={l.href} className="btn-ghost text-sm">{l.label}</a>
+          {links.map((l) => (
+            <a key={l.href} href={l.href} className="btn-ghost text-sm">
+              {l.label}
+            </a>
           ))}
         </nav>
       </div>
