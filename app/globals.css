@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
+/* Tailwind v4 theme tokens */
+@theme {
+  /* Brand colors (map onto bg-brand, text-brand, etc.) */
+  --color-brand: oklch(25% 0.2 250);
+  --color-brand-fg: oklch(98% 0.02 250);
+  --color-brand-dark: oklch(15% 0.21 250);
+
+  /* Radii become rounded-xl / rounded-2xl utilities */
+  --radius-xl: 0.9rem;
+  --radius-2xl: 1.25rem;
+}
+
+/* Light theme surface tokens (for HSL-based surfaces) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: 255 100% 99%;
+  --fg: 255 10% 10%;
+  --muted: 255 15% 35%;
+  --card: 0 0% 100%;
+  --ring: 250 100% 75%;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark theme overrides */
+.dark {
+  --bg: 230 14% 8%;
+  --fg: 230 15% 96%;
+  --muted: 230 10% 72%;
+  --card: 230 10% 12%;
+  --ring: 262 83% 58%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html,
+  body {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-[hsl(var(--bg))] text-[hsl(var(--fg))] antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand/30;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Page-width wrapper for readable text/content */
+  .container-prose {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Card surface */
+  .card {
+    @apply rounded-2xl bg-[hsl(var(--card))] border border-black/5;
+    /* soft shadow (also defined in tailwind.config as shadow-soft for convenience) */
+    @apply shadow-[0_10px_25px_-10px_rgb(0_0_0_/_0.25)];
+  }
+
+  /* Base button */
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium
+           ring-1 ring-black/10 hover:ring-black/20
+           transition;
+  }
+
+  /* Primary / filled button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium
+           ring-1 ring-black/10 hover:ring-black/20
+           transition
+           bg-brand text-white hover:brightness-105;
+  }
+
+  /* Ghost / subtle button */
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium
+           ring-1 ring-black/10 hover:ring-black/20
+           transition
+           bg-transparent hover:bg-black/5 dark:hover:bg-white/5;
+  }
+
+  /* Small pill badge */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm
+           bg-black/5 dark:bg-white/10
+           ring-1 ring-black/10;
+  }
+}
+
+/* Decorative grid background blob */
+.bg-grid {
+  background-image: radial-gradient(hsl(var(--ring)) 1px, transparent 1px);
+  background-size: 18px 18px;
+  background-position: -9px -9px;
+  mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    black 60%,
+    transparent 100%
+  );
 }
