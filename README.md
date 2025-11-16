@@ -1,37 +1,171 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚀 Personal Portfolio (Next.js + TypeScript)
 
-## Getting Started
+A modern, responsive, and customizable developer portfolio built with
+Next.js App Router, TypeScript, Framer Motion, and a fully modular
+component architecture.
 
-First, run the development server:
+This project is designed to be easily reusable — you can simply replace
+the resume/config files with your own information and deploy your
+personal website in minutes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Fully responsive, modern UI
+- Modular section-based architecture
+- Framer Motion animations
+- Reusable components
+- Centralized resume + site config
+- Easy to customize
+- SEO-ready
+- Dark/Light theme with automatic system detection
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+👤 About Me
 
-To learn more about Next.js, take a look at the following resources:
+Hi, I’m Mohammadreza Sharifkhani, a frontend developer passionate about
+building fast, scalable, and smart web applications.
+I work mainly with React, Next.js, TypeScript, and real-time intelligent
+systems.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This portfolio showcases my skills, experience, and selected
+projects—fully structured to be reusable for other developers as well.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+📦 How to Use This Project as Your Own Portfolio
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+You can freely use this project as a template for your personal website.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# my-portfolio" 
+1. Clone the project
+
+   git clone https://github.com/mosharif30/my-portfolio
+   cd my-portfolio
+
+2. Install dependencies
+
+   npm install
+
+   # or
+
+   yarn
+
+   # or
+
+   pnpm install
+
+   # or
+
+   bun install
+
+3. Run the development server
+
+   npm run dev
+
+   # or
+
+   yarn dev
+
+   # or
+
+   pnpm dev
+
+   # or
+
+   bun dev
+
+Now open:
+
+👉 http://localhost:3000
+
+---
+
+🛠 Customize for Your Own Use
+
+To make this your personal portfolio:
+
+🔹 1. Update your resume
+
+Edit:
+
+    /lib/resume.ts
+
+Change: - name
+
+- title
+- contact info
+- skills
+- experience
+- education
+- projects
+- languages
+- certifications
+
+Everything on the portfolio updates automatically.
+
+---
+
+🔹 2. Update global site configuration
+
+Edit:
+
+    /lib/siteConfig.ts
+
+Change: - site title
+
+- your domain
+- meta description
+- social links
+
+This automatically updates SEO and metadata.
+
+---
+
+🔹 3. Replace your photo
+
+Place your photo in:
+
+    /public/me.jpg
+
+And it will appear in the Hero section.
+
+---
+
+🧱 Project Structure
+
+    src/
+      app/
+      components/
+        layout/
+        ui/
+        sections/
+      lib/
+      types/
+      public/
+
+Section-based architecture makes it easy to reorder or remove sections.
+
+---
+
+🌍 Deploy
+
+You can deploy the site easily on Vercel:
+
+    vercel deploy
+
+or connect the GitHub repo to Vercel for automatic deployment.
+
+---
+
+🧑‍💻 Connect With Me
+
+- LinkedIn: https://www.linkedin.com/in/msharifkhani/
+- GitHub: https://github.com/mosharif30
+- Email: Sharifkhani.mr@gmail.com
+
+---
+
+Feel free to fork, customize, and use this template for your own
+personal portfolio!
