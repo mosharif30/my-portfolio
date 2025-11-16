@@ -1,9 +1,11 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { siteConfig } from "@/lib/Siteconfig";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,12 +17,36 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Mohammadreza Sharifkhani — Frontend Developer",
-  description:
-    "Personal site & portfolio of Mohammadreza Sharifkhani, a frontend developer specialized in React, Next.js, and intelligent software systems.",
-  metadataBase: new URL("https://example.com"),
-};
+// ✅ به‌جای export const metadata از generateMetadata استفاده می‌کنیم
+export async function generateMetadata(): Promise<Metadata> {
+  const title = `${siteConfig.name} — ${siteConfig.role}`;
+  const description = siteConfig.description;
+  const url = siteConfig.url;
+
+  return {
+    title,
+    description,
+    metadataBase: new URL(url),
+    keywords: siteConfig.keywords,
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: title,
+      type: "website",
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    alternates: {
+      canonical: url,
+    },
+  };
+}
+
 const ThemeScript = () => (
   <script
     suppressHydrationWarning
@@ -37,6 +63,7 @@ const ThemeScript = () => (
     }}
   />
 );
+
 export default function RootLayout({
   children,
 }: Readonly<{

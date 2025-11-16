@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { resume } from "@/lib/resume";
 
 const links = [
   { href: "#about", label: "About" },
@@ -13,12 +13,11 @@ const links = [
 ];
 
 export function Header() {
-  const pathname = usePathname();
   return (
     <header className="sticky top-0 z-40 backdrop-blur border-b border-black/5 bg-[hsl(var(--bg))]/70">
       <div className="container-prose flex items-center justify-between h-16">
         <Link href="/" className="font-bold tracking-tight">
-          Mohammadreza Sharifkhani
+          {resume.name}
         </Link>
         <nav className="hidden sm:flex items-center gap-1">
           {links.map((l) => (

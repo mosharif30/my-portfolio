@@ -18,7 +18,7 @@ export const resume: Resume = {
   },
 
   about:
-    "Computer Science graduate with experience in intelligent web applications, AI-driven systems, and optimization techniques. Passionate about integrating artificial intelligence with software engineering and pursuing a Master's degree at the University of Padova.",
+    "Computer Science graduate with experience in intelligent web applications, AI-driven systems, and optimization techniques. Passionate about integrating artificial intelligence with software engineering.",
 
   projects: [
     {
