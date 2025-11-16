@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/motionPresets";
-import { Section } from "@/components/Section";
-import { Card } from "@/components/Card";
+import { Section } from "@/components/UI/Section";
+import { Card } from "@/components/UI/Card";
 import { Resume } from "@/types/resume";
 
 export function ExtraSection({ resume }: { resume: Resume }) {

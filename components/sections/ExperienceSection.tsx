@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/motionPresets";
-import { Section } from "@/components/Section";
-import { Timeline } from "@/components/Timeline";
+import { Section } from "@/components/UI/Section";
+import { Timeline } from "@/components/UI/Timeline";
 import { Resume } from "@/types/resume";
 
 export function ExperienceSection({ resume }: { resume: Resume }) {

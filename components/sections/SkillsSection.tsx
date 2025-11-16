@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/motionPresets";
-import { Section } from "@/components/Section";
-import { Card } from "@/components/Card";
-import { Badge } from "@/components/Badge";
+import { Section } from "@/components/UI/Section";
+import { Card } from "@/components/UI/Card";
+import { Badge } from "@/components/UI/Badge";
 import { Resume } from "@/types/resume";
 
 export default function SkillsSection({ resume }: { resume: Resume }) {

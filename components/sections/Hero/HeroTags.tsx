@@ -1,7 +1,7 @@
 // src/components/hero/HeroTags.tsx
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/motionPresets";
-import { Badge } from "@/components/Badge";
+import { Badge } from "@/components/UI/Badge";
 
 type HeroTagsProps = {
   tags: string[];

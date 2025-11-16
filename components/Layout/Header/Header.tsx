@@ -2,15 +2,7 @@
 
 import Link from "next/link";
 import { resume } from "@/lib/resume";
-
-const links = [
-  { href: "#about", label: "About" },
-  { href: "#education", label: "Education" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#extra", label: "More" },
-];
+import { HeaderItems } from "./HeaderItems";
 
 export function Header() {
   return (
@@ -20,7 +12,7 @@ export function Header() {
           {resume.name}
         </Link>
         <nav className="hidden sm:flex items-center gap-1">
-          {links.map((l) => (
+          {HeaderItems.map((l) => (
             <a key={l.href} href={l.href} className="btn-ghost text-sm">
               {l.label}
             </a>
