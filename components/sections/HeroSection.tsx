@@ -86,8 +86,8 @@ export function HeroSection({
           <motion.div
             className="flex flex-wrap justify-center md:justify-start gap-3"
             variants={staggerParent}
-            initial="initial"
-            whileInView="whileInView"
+            initial="hidden" // ✅ هماهنگ با variants
+            whileInView="show" // ✅ هماهنگ با variants
             viewport={{ once: false, amount: 0.2 }}
           >
             {/* Download CV */}
