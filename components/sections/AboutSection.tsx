@@ -7,6 +7,10 @@ import { Card } from "@/components/Card";
 import { Resume } from "@/types/resume";
 
 export function AboutSection({ resume }: { resume: Resume }) {
+  const aboutText =
+    resume.about ??
+    "Motivated Computer Science graduate with strong academic foundations in algorithms, databases, and AI. Experienced in building production UI for large-scale video management and e-commerce systems. I enjoy teaching and communicating complex ideas, and I’m exploring how ML can augment developer workflows.";
+
   return (
     <Section id="about" title="About me" eyebrow="Introduction">
       <div className="grid md:grid-cols-3 gap-6 relative">
@@ -18,13 +22,7 @@ export function AboutSection({ resume }: { resume: Resume }) {
 
         <motion.div className="md:col-span-2" {...fadeUp(0)}>
           <Card>
-            <p className="leading-8">
-              Motivated Computer Science graduate with strong academic
-              foundations in algorithms, databases, and AI. Experienced in
-              building production UI for large-scale video management and
-              e-commerce systems. I enjoy teaching and communicating complex
-              ideas, and I’m exploring how ML can augment developer workflows.
-            </p>
+            <p className="leading-8">{aboutText}</p>
           </Card>
         </motion.div>
 
@@ -32,7 +30,7 @@ export function AboutSection({ resume }: { resume: Resume }) {
           <Card>
             <ul className="space-y-2 text-sm">
               <li>
-                <strong>Based:</strong> Tehran, Iran
+                <strong>Based:</strong> {resume.contact.location}
               </li>
               <li>
                 <strong>Nationality:</strong> Iranian
@@ -40,10 +38,10 @@ export function AboutSection({ resume }: { resume: Resume }) {
               <li>
                 <strong>Phone:</strong>{" "}
                 <a
-                  href="tel:+989351017434"
+                  href={`tel:${resume.contact.phone}`}
                   className="underline decoration-dotted"
                 >
-                  (+98) 935 101 7434
+                  {resume.contact.phone}
                 </a>
               </li>
               <li>

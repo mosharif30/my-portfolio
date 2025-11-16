@@ -9,6 +9,7 @@ export interface ContactInfo {
 export interface Links {
   linkedin: string;
   github: string;
+  website?: string;
   cv?: string;
 }
 
@@ -48,10 +49,10 @@ export interface Certification {
   date?: string;
 }
 
-// 👇 NEW: typed skill groups
+// typed skill groups
 export interface SkillGroup {
-  label: string; // "Frontend / UI"
-  skills: string[]; // ["React.js", "Next.js", ...]
+  label: string; // e.g. "Frontend / UI"
+  skills: string[]; // e.g. ["React.js", "Next.js", ...]
 }
 
 export interface Resume {
@@ -60,16 +61,18 @@ export interface Resume {
   title: string;
   contact: ContactInfo;
   links: Links;
+  about?: string;
   projects: Project[];
 
   // flat skills (good for badges in Hero/projects)
   skills: string[];
 
-  // 👇 NEW
+  // grouped skills
   skillGroups: SkillGroup[];
 
   experience: ExperienceItem[];
   education: EducationItem[];
   languages: Language[];
   certifications: Certification[];
+  hobbies?: string[];
 }

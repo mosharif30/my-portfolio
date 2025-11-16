@@ -27,15 +27,15 @@ export default function Home() {
 
       <AboutSection resume={resume} />
 
-      <EducationSection />
+      <EducationSection resume={resume} />
 
-      <ExperienceSection />
+      <ExperienceSection resume={resume} />
 
       <ProjectsSection resume={resume} />
 
       <SkillsSection resume={resume} />
 
-      <ExtraSection />
+      <ExtraSection resume={resume} />
     </main>
   );
 }

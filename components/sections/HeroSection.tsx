@@ -19,6 +19,15 @@ export function HeroSection({
   isExternalCV: boolean;
   resume: Resume;
 }) {
+  // تگ‌ها رو از skills می‌گیریم، حداکثر ۶ تا
+  const heroTags =
+    resume.skills && resume.skills.length > 0
+      ? resume.skills.slice(0, 6)
+      : ["React", "Next.js", "TypeScript", "GraphQL", "WebRTC", "ML-curious"];
+
+  const [firstName, ...restName] = resume.name.split(" ");
+  const lastName = restName.join(" ");
+
   return (
     <section className="relative pt-10 pb-16">
       {/* background aura behind hero */}
@@ -63,16 +72,14 @@ export function HeroSection({
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight">
-            {resume.name.split(" ")[0]}{" "}
-            <span className="text-[hsl(var(--brand))]">
-              {resume.name.split(" ").slice(1).join(" ")}
-            </span>
+            {firstName}{" "}
+            <span className="text-[hsl(var(--brand))]">{lastName}</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-[hsl(var(--muted))] max-w-3xl md:max-w-2xl md:pr-6 mx-auto md:mx-0 leading-relaxed">
-            {resume.title} with 3+ years of experience. I build resilient,
-            data-driven interfaces with React &amp; Next.js, and I’m passionate
-            about machine learning and intelligent software systems.
+            {resume.title} with experience in building resilient, data-driven
+            interfaces using React &amp; Next.js, and a strong interest in
+            intelligent software systems &amp; machine learning.
           </p>
 
           {/* CTAs */}
@@ -84,8 +91,7 @@ export function HeroSection({
             viewport={{ once: false, amount: 0.2 }}
           >
             {/* Download CV */}
-            <div className="flex flex-wrap justify-center md:justify-start gap-3">
-              {/* CV download: internal files use <a download>, external links open in new tab */}
+            <motion.div variants={staggerChild}>
               {isExternalCV ? (
                 <Link
                   href={cvUrl}
@@ -100,36 +106,7 @@ export function HeroSection({
                   <Download className="size-4" aria-hidden /> Download CV
                 </a>
               )}
-
-              <Link
-                href={resume.links.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost"
-              >
-                <Linkedin className="size-4" aria-hidden /> LinkedIn
-              </Link>
-
-              <Link
-                href={resume.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost"
-              >
-                <Github className="size-4" aria-hidden /> GitHub
-              </Link>
-
-              <Link
-                href={`mailto:${resume.contact.email}`}
-                className="btn-ghost"
-              >
-                <Mail className="size-4" aria-hidden /> Email
-              </Link>
-
-              <Link href="#projects" className="btn-ghost">
-                See projects <ArrowRight className="size-4" aria-hidden />
-              </Link>
-            </div>
+            </motion.div>
 
             {/* LinkedIn */}
             <motion.div variants={staggerChild}>
@@ -183,14 +160,7 @@ export function HeroSection({
             className="flex flex-wrap justify-center md:justify-start gap-2 pt-1"
             {...fadeUp(0.15)}
           >
-            {[
-              "React",
-              "Next.js",
-              "TypeScript",
-              "GraphQL",
-              "WebRTC",
-              "ML-curious",
-            ].map((tag) => (
+            {heroTags.map((tag) => (
               <Badge key={tag}>{tag}</Badge>
             ))}
           </motion.div>
