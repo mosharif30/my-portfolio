@@ -14,7 +14,6 @@ export function AboutSection({ resume }: { resume: Resume }) {
   return (
     <Section id="about" title="About me" eyebrow="Introduction">
       <div className="grid md:grid-cols-3 gap-6 relative">
-        {/* soft corner glow */}
         <div
           aria-hidden
           className="pointer-events-none absolute -top-16 -left-16 size-40 rounded-full blur-3xl bg-[radial-gradient(circle_at_center,hsl(var(--brand)/0.12)_0%,transparent_70%)]"

@@ -2,7 +2,7 @@
 
 import { resume } from "@/lib/resume";
 
-import { HeroSection } from "@/components/sections/HeroSection";
+import { HeroSection } from "@/components/sections/Hero/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { EducationSection } from "@/components/sections/EducationSection";

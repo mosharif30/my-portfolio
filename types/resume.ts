@@ -1,4 +1,3 @@
-// types/resume.ts
 
 export interface ContactInfo {
   email: string;
@@ -49,10 +48,9 @@ export interface Certification {
   date?: string;
 }
 
-// typed skill groups
 export interface SkillGroup {
-  label: string; // e.g. "Frontend / UI"
-  skills: string[]; // e.g. ["React.js", "Next.js", ...]
+  label: string; 
+  skills: string[]; 
 }
 
 export interface Resume {
@@ -64,10 +62,8 @@ export interface Resume {
   about?: string;
   projects: Project[];
 
-  // flat skills (good for badges in Hero/projects)
   skills: string[];
 
-  // grouped skills
   skillGroups: SkillGroup[];
 
   experience: ExperienceItem[];
