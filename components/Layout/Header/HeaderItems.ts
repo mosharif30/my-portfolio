@@ -4,5 +4,6 @@ export const HeaderItems = [
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
-  { href: "#extra", label: "More" },
+  { href: "#background", label: "Background" },
+  { href: "#contact", label: "Contact" },
 ];

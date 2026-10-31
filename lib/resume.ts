@@ -1,92 +1,70 @@
-// lib/resume.ts
+// Text wrapped in **double asterisks** is rendered in bold.
 import type { Resume } from "@/types/resume";
 
 export const resume: Resume = {
   photo: "/me.jpg",
   name: "Mohammadreza Sharifkhani",
-  title: "Frontend Developer",
+  title: "MSc Data Science Student · Software Engineer",
+  availability: "Open to internships & part-time roles",
+  tagline:
+    "I build real-time, data-intensive applications, and I'm now combining that engineering experience with machine learning and statistics to create reliable, explainable, data-driven products.",
 
   contact: {
     email: "Sharifkhani.mr@gmail.com",
-    phone: "+989351017434",
-    location: "Tehran, Iran",
+    phone: "+39 352 272 1552",
+    location: "Milan, Italy",
   },
 
   links: {
     linkedin: "https://www.linkedin.com/in/msharifkhani/",
     github: "https://github.com/mosharif30",
+    cv: "/cv.pdf",
   },
 
-  about:
-    "Computer Science graduate with experience in intelligent web applications, AI-driven systems, and optimization techniques. Passionate about integrating artificial intelligence with software engineering.",
-
-  projects: [
-    {
-      title: "Full-Stack Blog Platform",
-      period: "Dec 2021 — May 2022",
-      stack: ["React", "GraphQL", "Node.js"],
-      description:
-        "Scalable blogging system with categorized browsing, real-time interactions, modular architecture, and secure authentication.",
-      url: "https://www.amirsiadat.com/",
-      repo: "https://github.com/mosharif30/liarasiadatblog",
-    },
-    {
-      title: "Portfolio Website — Graphic Designer",
-      period: "Jul 2022 — Oct 2022",
-      stack: ["Next.js", "SEO", "Image Optimization"],
-      description:
-        "Responsive, SEO‑optimized portfolio with dynamic routing, image optimization, and component‑based design.",
-      url: "https://mahshidasoudehkhah.com/",
-      repo: "https://github.com/mosharif30/MahshidPortfolio",
-    },
+  highlights: [
+    { label: "Studying", value: "MSc Data Science, University of Milano-Bicocca" },
+    { label: "Experience", value: "3+ years of professional software engineering" },
+    { label: "Based in", value: "Milan, Italy" },
+    { label: "Looking for", value: "Data science, machine learning & data engineering roles" },
   ],
 
-  skills: [
-    "JavaScript",
-    "TypeScript",
-    "Python",
-    "React.js",
-    "Next.js",
-    "Redux",
-    "React Query",
-    "Node.js",
-    "REST APIs",
-    "GraphQL",
-    "MongoDB",
-    "MySQL",
-    "PostgreSQL",
-    "Git",
-    "GitHub",
-    "Docker",
+  about: [
+    "Data Science MSc student at the University of Milano-Bicocca with **3+ years of professional software engineering experience** building real-time, data-intensive applications.",
+    "Delivered the front end of a large-scale **AI-powered video analytics platform**, integrating face and license-plate recognition and turning model outputs into dashboards, alerts and visual analytics for operators.",
+    "Strong foundations in algorithms, databases and SQL, including experience as a university Teaching Assistant for Database Systems. Now combining engineering experience with machine learning and statistics to build reliable, explainable, data-driven products.",
   ],
 
-  skillGroups: [
+  researchInterests: [
+    "Machine Learning & Deep Learning",
+    "Explainable AI & Model Interpretability",
+    "Predictive Analytics & Data-Driven Decision Support",
+    "Intelligent and Adaptive Software Systems",
+    "Human–AI Interaction",
+  ],
+
+  education: [
     {
-      label: "Frontend / UI",
-      skills: [
-        "React.js",
-        "Next.js",
-        "Redux",
-        "React Query",
-        "TypeScript",
-        "JavaScript",
+      title: "MSc in Data Science",
+      org: "University of Milano-Bicocca",
+      summary: "Università degli Studi di Milano-Bicocca",
+      location: "Milan, Italy",
+      period: "Oct 2026 – Present",
+      bullets: [
+        "Two-year, English-taught programme covering machine learning, statistical modelling, data management and large-scale data analysis.",
       ],
     },
     {
-      label: "Backend & APIs",
-      skills: ["Node.js", "REST APIs", "GraphQL"],
-    },
-    {
-      label: "Databases",
-      skills: ["MongoDB", "MySQL", "PostgreSQL"],
-    },
-    {
-      label: "Tooling / DevOps",
-      skills: ["Git", "GitHub", "Docker"],
-    },
-    {
-      label: "General / Extra",
-      skills: ["Python"],
+      title: "BSc in Computer Science",
+      org: "Islamic Azad University, Science & Research Branch",
+      location: "Tehran, Iran",
+      period: "Sep 2018 – Jul 2023",
+      bullets: [
+        "**Final grade:** 16.52 / 20 (GPA 3.22 / 4) · EQF level 6.",
+        "**Key coursework:** Data Structures & Algorithms, Database Systems, Artificial Intelligence, Mathematical Logic.",
+        "**Teaching Assistant, Database Systems:** supported students in database modelling, SQL query optimisation and course projects.",
+        "Presented talks at university-level conferences on cryptographic algorithms and on applying the Rust programming language to artificial intelligence.",
+        "**Thesis:** full-stack blogging platform (Node.js, GraphQL, React) with a modular architecture, API integration and secure authentication.",
+      ],
     },
   ],
 
@@ -94,58 +72,121 @@ export const resume: Resume = {
     {
       title: "Frontend Developer",
       org: "Didenegar Hoosh No",
+      summary: "AI-powered video surveillance & analytics",
       location: "Tehran, Iran",
-      period: "Jun 2023 — Present",
+      period: "Jun 2023 – Sep 2026",
       bullets: [
-        "Developed the front end of a large‑scale VMS using React + Ant Design.",
-        "Integrated WebRTC and HLS/MSE for live and playback streaming.",
-        "Implemented AI‑based face & license‑plate recognition with automated alerts and analytics.",
-        "Collaborated with backend engineers using REST APIs and WebSocket for synchronized workflows.",
+        "Built the front end of a **large-scale Video Management System (VMS)** in React and Ant Design, delivering an intuitive dashboard for real-time monitoring of CCTV camera networks.",
+        "Integrated **AI-based face and license-plate recognition** modules into the product, with automated alerts and analytics visualisations that turn model outputs into actionable insights.",
+        "Implemented live and playback video streaming using **WebRTC** and **HLS/MSE**.",
+        "Collaborated with backend and AI engineers through REST APIs and WebSockets to keep video streams, detection events and analytics in sync.",
       ],
+      stack: ["React", "Ant Design", "WebRTC", "HLS / MSE", "REST APIs", "WebSocket"],
     },
     {
-      title: "Frontend Developer",
+      title: "Front-End Developer",
       org: "Hamiket",
       location: "Tehran, Iran",
-      period: "Feb 2023 — Jun 2023",
+      period: "Feb 2023 – Jun 2023",
       bullets: [
-        "Built and maintained the admin dashboard, seller portal, and main website using React & Next.js.",
+        "Built and maintained the admin dashboard, seller portal and main customer-facing website using React and Next.js.",
       ],
+      stack: ["React", "Next.js"],
     },
   ],
 
-  education: [
+  projects: [
     {
-      degree: "B.Sc. in Computer Science",
-      org: "Islamic Azad University, Science & Research Branch",
-      location: "Tehran, Iran",
-      period: "Sep 2018 — Jul 2023",
-      bullets: [
-        "Strong results in DSA, Database Systems, AI, and Mathematical Logic.",
-        "Teaching Assistant for Database Systems (ER/EER modeling, SQL, optimization).",
-        "Final Project: Full‑Stack Blog using Node.js, GraphQL, and React.",
-        "Final grade: 16.52 / 20 (≈3.22/4).",
+      title: "Full-Stack Blog Platform",
+      period: "Dec 2021 – May 2022",
+      stack: ["React", "Node.js", "GraphQL"],
+      description:
+        "Designed and deployed a scalable blogging system with categorised content browsing and real-time interaction; focused on responsive UI, API performance and secure user authentication. Also my bachelor's thesis.",
+      url: "https://amirsiadat-blog.fly.dev/",
+      repo: "https://github.com/mosharif30/liarasiadatblog",
+      image: "/projects/blog.jpg",
+    },
+    {
+      title: "Portfolio Website for a Graphic Designer",
+      period: "Jul 2022 – Oct 2022",
+      stack: ["Next.js", "SEO", "Image optimisation"],
+      description:
+        "Developed a responsive, SEO-optimised portfolio platform with dynamic routing, image optimisation and component-based design.",
+      repo: "https://github.com/mosharif30/MahshidPortfolio",
+      cover: "Mahshid Asoudehkhah",
+    },
+  ],
+
+  skillGroups: [
+    {
+      label: "Programming",
+      skills: ["Python", "SQL", "JavaScript", "TypeScript"],
+    },
+    {
+      label: "Data & Databases",
+      skills: [
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB",
+        "Data modelling",
+        "Query optimisation",
+        "Analytics dashboards",
       ],
+    },
+    {
+      label: "Web & Backend",
+      skills: [
+        "React",
+        "Next.js",
+        "Redux",
+        "React Query",
+        "Node.js",
+        "REST APIs",
+        "GraphQL",
+        "WebSocket",
+      ],
+    },
+    {
+      label: "Real-time Media",
+      skills: ["WebRTC", "HLS / MSE"],
+    },
+    {
+      label: "Tools",
+      skills: ["Git", "GitHub"],
     },
   ],
 
   languages: [
-    { name: "Persian", level: "Native" },
-    { name: "English", level: "C1" },
+    { name: "Persian", detail: "Native" },
+    { name: "English", detail: "C1, IELTS 7.0 (Listening C2)" },
   ],
 
   certifications: [
     {
       name: "Frontend Development",
-      issuer: "Udemy",
-      date: "Sep 14, 2022",
+      detail: "Udemy, 2022",
+      note: "React, Next.js, TypeScript, Redux, React Query, Tailwind",
     },
     {
       name: "Backend Development",
-      issuer: "Maktab Sharif",
-      date: "Apr 21, 2019",
+      detail: "Udemy",
+      note: "Node.js, MongoDB, RESTful API design, deployment",
     },
   ],
 
-  hobbies: ["Philosophy", "Tennis"],
-} as const;
+  honours: [
+    {
+      name: "Admission to NODET",
+      detail: "National Organization for Development of Exceptional Talents, Iran (2014)",
+    },
+    { name: "Best Developer Award", detail: "School recognition (2017)" },
+  ],
+
+  interests: [
+    {
+      name: "Philosophy",
+      detail: "Continental philosophy (Kant, Hegel, Heidegger) and its links to science and AI",
+    },
+    { name: "Tennis" },
+  ],
+};

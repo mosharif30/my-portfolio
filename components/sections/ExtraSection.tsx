@@ -1,39 +1,36 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { fadeUp } from "@/lib/motionPresets";
 import { Section } from "@/components/UI/Section";
-import { Card } from "@/components/UI/Card";
-import { Resume } from "@/types/resume";
+import type { Entry, Resume } from "@/types/resume";
+
+function EntryList({ heading, entries }: { heading: string; entries: Entry[] }) {
+  return (
+    <div>
+      <h3 className="eyebrow">{heading}</h3>
+      <ul className="mt-4 space-y-3">
+        {entries.map((entry) => (
+          <li key={entry.name} className="leading-snug">
+            <span className="font-medium">{entry.name}</span>
+            {entry.detail && (
+              <span className="text-muted"> · {entry.detail}</span>
+            )}
+            {entry.note && (
+              <span className="mt-1 block text-sm text-muted">{entry.note}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export function ExtraSection({ resume }: { resume: Resume }) {
   return (
-    <Section id="extra" title="Languages & Certifications" eyebrow="More">
-      <motion.div className="grid md:grid-cols-2 gap-6" {...fadeUp(0)}>
-        <Card className="hover:-translate-y-1 transition-transform duration-200">
-          <h3 className="font-semibold mb-2">Languages</h3>
-          <ul className="space-y-1 text-sm leading-relaxed">
-            {resume.languages.map((lang) => (
-              <li key={lang.name}>
-                {lang.name} — {lang.level}
-              </li>
-            ))}
-          </ul>
-        </Card>
-
-        <Card className="hover:-translate-y-1 transition-transform duration-200">
-          <h3 className="font-semibold mb-2">Certifications</h3>
-          <ul className="space-y-1 text-sm leading-relaxed">
-            {resume.certifications.map((cert, i) => (
-              <li key={i}>
-                {cert.name}
-                {cert.issuer ? ` — ${cert.issuer}` : ""}
-                {cert.date ? ` (${cert.date})` : ""}
-              </li>
-            ))}
-          </ul>
-        </Card>
-      </motion.div>
+    <Section id="background" title="Background" eyebrow="And more">
+      <div className="grid gap-10 sm:grid-cols-2">
+        <EntryList heading="Languages" entries={resume.languages} />
+        <EntryList heading="Certifications" entries={resume.certifications} />
+        <EntryList heading="Honours & awards" entries={resume.honours} />
+        <EntryList heading="Interests" entries={resume.interests} />
+      </div>
     </Section>
   );
 }

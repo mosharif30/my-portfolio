@@ -1,41 +1,25 @@
-"use client";
-
 import { resume } from "@/lib/resume";
 
 import { HeroSection } from "@/components/sections/Hero/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
-import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { EducationSection } from "@/components/sections/EducationSection";
+import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
-import SkillsSection from "@/components/sections/SkillsSection";
+import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ExtraSection } from "@/components/sections/ExtraSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 
 export default function Home() {
-  const CV_URL = resume?.links?.cv ?? "/cv.pdf";
-  const isExternalCV = typeof CV_URL === "string" && CV_URL.startsWith("http");
-
-  const PHOTO_URL = resume?.photo ?? "/me.jpg";
-
   return (
-    <main className="space-y-24">
-      <HeroSection
-        photo={PHOTO_URL}
-        cvUrl={CV_URL}
-        isExternalCV={isExternalCV}
-        resume={resume}
-      />
-
+    <>
+      <HeroSection resume={resume} />
       <AboutSection resume={resume} />
-
       <EducationSection resume={resume} />
-
       <ExperienceSection resume={resume} />
-
       <ProjectsSection resume={resume} />
-
       <SkillsSection resume={resume} />
-
       <ExtraSection resume={resume} />
-    </main>
+      <ContactSection resume={resume} />
+    </>
   );
 }

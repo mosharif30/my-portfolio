@@ -1,102 +1,123 @@
 @import "tailwindcss";
 
-/* Tailwind v4 theme tokens */
-@theme {
-  /* Brand colors (map onto bg-brand, text-brand, etc.) */
-  --color-brand: oklch(25% 0.2 250);
-  --color-brand-fg: oklch(98% 0.02 250);
-  --color-brand-dark: oklch(15% 0.21 250);
+/* Make dark: follow the .dark class set by the theme script and toggle, not the OS. */
+@custom-variant dark (&:where(.dark, .dark *));
 
-  /* Radii become rounded-xl / rounded-2xl utilities */
-  --radius-xl: 0.9rem;
-  --radius-2xl: 1.25rem;
+/* Tailwind v4 theme tokens: bg-surface, text-muted, border-line, font-serif, ... */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-newsreader);
 }
 
-/* Light theme surface tokens (for HSL-based surfaces) */
 :root {
-  --bg: 255 100% 99%;
-  --fg: 255 10% 10%;
-  --muted: 255 15% 35%;
-  --card: 0 0% 100%;
-  --ring: 250 100% 75%;
+  --bg: #fbfaf6;
+  --fg: #15202b;
+  --muted: #55626e;
+  --line: #e3e0d6;
+  --surface: #ffffff;
+  --accent: #0b5f7c;
+  --accent-fg: #ffffff;
+  --accent-soft: #e4f0f3;
 }
 
-/* Dark theme overrides */
 .dark {
-  --bg: 230 14% 8%;
-  --fg: 230 15% 96%;
-  --muted: 230 10% 72%;
-  --card: 230 10% 12%;
-  --ring: 262 83% 58%;
+  --bg: #0d1317;
+  --fg: #e8edef;
+  --muted: #9dabb5;
+  --line: #26323a;
+  --surface: #131b20;
+  --accent: #72c6dc;
+  --accent-fg: #06222c;
+  --accent-soft: #15303a;
 }
 
 @layer base {
-  html,
-  body {
-    @apply h-full;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   body {
-    @apply bg-[hsl(var(--bg))] text-[hsl(var(--fg))] antialiased;
+    @apply bg-bg text-fg antialiased;
   }
 
   ::selection {
-    @apply bg-brand/30;
+    @apply bg-accent text-accent-fg;
+  }
+
+  :focus-visible {
+    @apply rounded-sm outline-2 outline-offset-2 outline-accent;
   }
 }
 
 @layer components {
-  /* Page-width wrapper for readable text/content */
   .container-prose {
-    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
   }
 
-  /* Card surface */
   .card {
-    @apply rounded-2xl bg-[hsl(var(--card))] border border-black/5;
-    /* soft shadow (also defined in tailwind.config as shadow-soft for convenience) */
-    @apply shadow-[0_10px_25px_-10px_rgb(0_0_0_/_0.25)];
+    @apply rounded-2xl border border-line bg-surface;
   }
 
-  /* Base button */
-  .btn {
-    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium
-           ring-1 ring-black/10 hover:ring-black/20
-           transition;
-  }
-
-  /* Primary / filled button */
-  .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium
-           ring-1 ring-black/10 hover:ring-black/20
-           transition
-           bg-brand text-white hover:brightness-105;
-  }
-
-  /* Ghost / subtle button */
+  .btn-primary,
   .btn-ghost {
-    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium
-           ring-1 ring-black/10 hover:ring-black/20
-           transition
-           bg-transparent hover:bg-black/5 dark:hover:bg-white/5;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium transition-colors;
   }
 
-  /* Small pill badge */
+  .btn-primary {
+    @apply bg-accent text-accent-fg hover:opacity-90;
+  }
+
+  .btn-ghost {
+    @apply border border-line hover:border-accent hover:text-accent;
+  }
+
   .badge {
-    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm
-           bg-black/5 dark:bg-white/10
-           ring-1 ring-black/10;
+    @apply inline-flex items-center rounded-md bg-accent-soft px-2.5 py-1 text-[0.8125rem] leading-none text-accent;
+  }
+
+  /* Small monospaced label used above headings and in data rows */
+  .eyebrow {
+    @apply font-mono text-xs tracking-wider text-muted uppercase;
   }
 }
 
-/* Decorative grid background blob */
+/* Decorative dot grid behind the hero */
 .bg-grid {
-  background-image: radial-gradient(hsl(var(--ring)) 1px, transparent 1px);
+  background-image: radial-gradient(var(--line) 1px, transparent 1px);
   background-size: 18px 18px;
-  background-position: -9px -9px;
-  mask-image: radial-gradient(
-    ellipse 80% 60% at 50% 0%,
-    black 60%,
-    transparent 100%
-  );
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 40%, transparent 100%);
+}
+
+/* CSS-only entrance for above-the-fold content, so it never waits on hydration */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+.rise {
+  animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .rise {
+    animation: none;
+  }
 }

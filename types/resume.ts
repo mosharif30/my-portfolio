@@ -1,4 +1,3 @@
-
 export interface ContactInfo {
   email: string;
   phone: string;
@@ -8,8 +7,12 @@ export interface ContactInfo {
 export interface Links {
   linkedin: string;
   github: string;
-  website?: string;
-  cv?: string;
+  cv: string;
+}
+
+export interface Highlight {
+  label: string;
+  value: string;
 }
 
 export interface Project {
@@ -19,56 +22,49 @@ export interface Project {
   description: string;
   url?: string;
   repo?: string;
+  image?: string;
+  /** Text shown on a typographic cover when there is no image. */
+  cover?: string;
 }
 
-export interface ExperienceItem {
+export interface TimelineItem {
   title: string;
   org: string;
+  summary?: string;
   location: string;
   period: string;
   bullets: string[];
-}
-
-export interface EducationItem {
-  degree: string;
-  org: string;
-  location: string;
-  period: string;
-  bullets: string[];
-}
-
-export interface Language {
-  name: string;
-  level: string;
-}
-
-export interface Certification {
-  name: string;
-  issuer?: string;
-  date?: string;
+  stack?: string[];
 }
 
 export interface SkillGroup {
-  label: string; 
-  skills: string[]; 
+  label: string;
+  skills: string[];
+}
+
+export interface Entry {
+  name: string;
+  detail?: string;
+  note?: string;
 }
 
 export interface Resume {
   photo: string;
   name: string;
   title: string;
+  availability: string;
+  tagline: string;
   contact: ContactInfo;
   links: Links;
-  about?: string;
+  highlights: Highlight[];
+  about: string[];
+  researchInterests: string[];
+  education: TimelineItem[];
+  experience: TimelineItem[];
   projects: Project[];
-
-  skills: string[];
-
   skillGroups: SkillGroup[];
-
-  experience: ExperienceItem[];
-  education: EducationItem[];
-  languages: Language[];
-  certifications: Certification[];
-  hobbies?: string[];
+  languages: Entry[];
+  certifications: Entry[];
+  honours: Entry[];
+  interests: Entry[];
 }
